@@ -228,14 +228,14 @@ var nStimuli = 6;
 
 /* THIS IS TO RANDOMIZE STIMS */
 var mStimArray = [
-	"static/experiments/soc_prob_learning/images/m_f42887_e_025.png",
-	"static/experiments/soc_prob_learning/images/m_f42887_e_037.png",
-	"static/experiments/soc_prob_learning/images/m_f42887_e_096.png",
+	"static/experiments/soc_prob_learning/images/male1.jpg",
+	"static/experiments/soc_prob_learning/images/male2.jpg",
+	"static/experiments/soc_prob_learning/images/male3.jpg",
 ];
 var fStimArray = [
-	"static/experiments/soc_prob_learning/images/f_f42887_e_022.png",
-	"static/experiments/soc_prob_learning/images/f_f42887_e_055.png",
-	"static/experiments/soc_prob_learning/images/f_f42887_e_264.png",
+	"static/experiments/soc_prob_learning/images/female1.jpg",
+	"static/experiments/soc_prob_learning/images/female2.jpg",
+	"static/experiments/soc_prob_learning/images/female3.jpg",
 ];
 jsPsych.pluginAPI.preloadImages(mStimArray)
 jsPsych.pluginAPI.preloadImages(fStimArray)
@@ -266,15 +266,15 @@ for(var j = 0; j < stims.length; j++){
 		switch(stims[j][i][1]){
 			case 'status':
 				prompts[0] = 'Popular';
-				prompts[1] = 'Unpopular';
+				prompts[1] = 'Not popular';
 				break;
 			case 'mateseek':
-				prompts[0] = 'Dating';
-				prompts[1] = 'Looking';
+				prompts[0] = 'Flirty';
+				prompts[1] = 'Not flirty';
 				break;
 			case 'soc':
-				prompts[0] = 'Hungry';
-				prompts[1] = 'Thirsty';
+				prompts[0] = 'Has siblings';
+				prompts[1] = 'Doesn\'t have siblings';
 				break;
 			case 'abstract':
 				prompts[0] = 'Sunny';
@@ -287,7 +287,7 @@ for(var j = 0; j < stims.length; j++){
 			"'></img></div><div class = decision-left>" + prompts[0] + 
 			"</div><div class = decision-right>" + prompts[1] + 
 			"</div>";
-		parsedFilename = stims[j][i][2].match("/([mf])_f42887_e_[0-9][0-9][0-9]\.png");
+		parsedFilename = stims[j][i][2].match("/([mf]).*?[0-9]\.jpg");	
 		stimGender = parsedFilename[1];
 		order1_stim.data = {
 			trial_id: 'stim',
@@ -410,7 +410,7 @@ var instructions_block = {
 		trial_id: "instruction"
 	},
 	pages: [
-		'<div class = bigtextbox><p class = block-text>In this experiment, you\'re going to see pictures of 6 different faces. Along with each picture, you\'ll see a pair of words, and we want you to try to guess which word goes with which picture.</p><p class = block-text>For 2 faces, you\'ll guess whether the person in the picture is <strong>popular</strong> or <strong>unpopular</strong>.</p><p class = block-text>For 2 other faces, you\'ll guess whether the person is <strong>dating</strong> someone or <strong>looking</strong> for someone to date.</p><p class = block-text>For the last 2 faces, you\'ll guess whether the person is <strong>hungry</strong> or <strong>thirsty</strong>.</p><p class = block-text>To make your guess, press the <strong>left arrow</strong> for the left answer or the <strong>right arrow</strong> for the right answer.</p></div>',
+		'<div class = bigtextbox><p class = block-text>In this experiment, you\'re going to see pictures of 6 different faces. Along with each picture, you\'ll see a pair of words, and we want you to try to guess which word goes with which picture.</p><p class = block-text>For 2 faces, you\'ll guess whether the person in the picture is <strong>popular</strong> or <strong> not popular</strong>.</p><p class = block-text>For 2 other faces, you\'ll guess whether the person is <strong>flirty</strong> or <strong>not flirty</strong>.</p><p class = block-text>For the last 2 faces, you\'ll guess whether the person <strong>has siblings</strong> or <strong>doesn\'t have siblings</strong>.</p><p class = block-text>To make your guess, press the <strong>left arrow</strong> for the left answer or the <strong>right arrow</strong> for the right answer.</p></div>',
 	'<div class = bigtextbox><p class = block-text>The same word goes with the same picture most of the time, <em>but not always</em>. After each guess you\'ll see the number of points you earned. For example, if you see "5/5 points" below the picture, it means you were correct and earned 5 points. But if you guess incorrectly, you won\'t get any points, so you\'ll just see the number of points you could have gotten. For example, "0/1 point" means you were wrong and got 0 out of 1 possible point.</p><p class = block-text>Try to guess correctly as often as you can to get the most points.</p><p class = block-text>Remember, press the <strong>left arrow</strong> for the left answer or the <strong>right arrow</strong> for the right answer.</p><!-- <p class=block-text><strong>Each point is worth a penny</strong>, so you can earn up to about $10</p> --></div>',
 	'<div class = bigtextbox><p class = block-text>These are the six faces you\'re going to see in the task. Look at them now so they\'re easier to recognize when you play the game:</p><p class = block-text-img><img src="'+ instructionStims[0][2]  +'" /><img src="'+ instructionStims[1][2]  +'" /><img src="'+ instructionStims[2][2]  +'" /><br /><img src="'+ instructionStims[3][2]  +'" /><img src="'+ instructionStims[4][2]  +'" /><img src="'+ instructionStims[5][2]  +'" /></p><p class = block-text>Remember, you\'re going to use the <strong>left</strong> and <strong>right</strong> arrow keys when the game starts.</p></div>'],
 	allow_keys: false,
